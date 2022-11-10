@@ -1,5 +1,9 @@
 # GIT
 
+## Sumário
+
+
+
 ## Introdução
 
 ### SCM (Source Code Management)
@@ -61,6 +65,18 @@ git add arquivo.txt
 git add -p
 ```
 
+#### **git restore**
+
+Restaura um arquivo para o estado anterior de alterações e pode também remover do Staging Area
+
+```sh
+# Restaura o arquivo para antes de ser alterado
+git restore arquivo.txt
+
+# Remove o arquivo do Staging Area
+git restore --staged arquivo.txt
+```
+
 #### **git commit**
 
 Persiste todas as alterações adicionadas a Staging Area, informando uma mensagem para essa alteração e é criado um HASH desse commit para garantir que seja imutável e único no repositório.
@@ -91,14 +107,12 @@ git branch -f release <codigo-do-commit>
 ```
 
 #### **git checkout**
+
 Checkout pode ser utilizado para trocar branches, remover arquivos do Staging Área e até criar branches.
 
 ```sh
 # Troca para a branch main
 git checkout main
-
-# Remove o arquivo.txt do Staging Área (já foi adicionado antes pelo git add)
-git checkout -- arquivo.txt
 
 # Cria uma branch chamada release a partir da branch atual
 git checkout -b release
@@ -106,9 +120,32 @@ git checkout -b release
 
 #### **git merge**
 
+Faz a mesclagem das alterações entre duas branches, é realizado de forma inteligente considerando linha a linha do arquivo.
+
+```sh
+# Mescla as informações da branch change pra dentro da branch atual
+git merge change
+```
+
 ### Resolvendo conflitos
 
-### Desfazendo alterações
+Conflitos ocorrem quando duas branches realizam alterações na mesma linha do arquivo e o merge é solicitado.
+As vezes é necessário realizar manualmente a mesclagem das informações quando o motor do git não consegue compreender qual das versões deve ser mantida.
+
+Nesse caso o arquivo receberá algumas tags para informar o conflito:
+```
+<<<<<<< HEAD
+[pedaço do código]
+=======
+[pedaço do código]
+>>>>>>> change
+```
+
+Onde `HEAD` indica as alterações que estão na branch atual, e `change` é o código da branch change que o merge foi solicitado.
+
+As IDEs de desenvolvimento já tem em sua maioria uma ferramenta de merge embutida, porém dependendo da complexidade é mais produtivo utilizar ferramentas como [Meld Merge](http://meldmerge.org/) que facilita bastante esse trabalho.
+
+<!-- ### Desfazendo alterações
 
 ```sh
 git reset
@@ -122,4 +159,4 @@ git remote
 git push
 git fetch 
 git pull
-```
+``` -->
