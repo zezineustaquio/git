@@ -2,7 +2,19 @@
 
 ## Sumário
 
-
+* [Introdução](#introdução)
+    * [SCM (Source Code Management)](#scm-source-code-management)
+    * [GIT](#git-1)
+* [Hands-on](#hands-on)
+    * [Criar repositório](#criar-repositório)
+    * [Comandos operacionais](#comandos-operacionais)
+        * [git add](#git-add)
+        * [git restore](#git-restore)
+        * [git commit](#git-commit)
+        * [git branch](#git-branch)
+        * [git checkout](#git-checkout)
+        * [git merge](#git-merge)
+    * [Resolvendo Conflitos](#resolvendo-conflitos)
 
 ## Introdução
 
