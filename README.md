@@ -14,6 +14,7 @@
         * [git branch](#git-branch)
         * [git checkout](#git-checkout)
         * [git merge](#git-merge)
+        * [git clean](#git-clean)
     * [Resolvendo Conflitos](#resolvendo-conflitos)
 
 ## Introdução
@@ -137,6 +138,18 @@ Faz a mesclagem das alterações entre duas branches, é realizado de forma inte
 ```sh
 # Mescla as informações da branch change pra dentro da branch atual
 git merge change
+```
+
+#### **git clean**
+
+Limpa os arquivos não versionados na pasta do repositório.
+
+```sh
+# Limpa todos os arquivos não versionados e/ou no .gitignore
+git clean -xfd
+
+# Limpa de forma recursiva em todos os repositórios de uma pasta (LINUX)
+find . -type d -iname ".git" -exec bash -c 'cd $(dirname "$0") && git clean -xfd' {} \;
 ```
 
 ### Resolvendo conflitos
